@@ -6,12 +6,12 @@
     <h2>Ваша корзина</h2>
     {% if cart_items %}
     <ul>
-        {% for item in cart_items %}
+        {% for cart_item, product in cart_items %}
             <li>
-                <h3>{{ item.product_name }}</h3>
-                <p>Цена: {{ item.product_price }} ₽</p>
-                <p>Количество: {{ item.quantity }}</p>
-                <form action="{{ url_for('remove_from_cart', cart_item_id=item.id) }}" method="POST">
+                <h3>{{ product.name }}</h3>
+                <p>Цена: {{ product.price }} ₽</p>
+                <p>Количество: {{ cart_item.quantity }}</p>
+                <form action="{{ url_for('remove_from_cart', cart_item_id=cart_item.id) }}" method="POST">
                     <button type="submit">Удалить</button>
                 </form>
             </li>
