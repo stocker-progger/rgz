@@ -6,9 +6,9 @@ from db import db
 from db.models import User, Product, Cart
 from os import path
 
-app = Flask(__rgz__)
+app = Flask(__name__)
 
-# Конфигурация приложения
+
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'секретно-секретный секрет')
 app.config['DB_TYPE'] = os.getenv('DB_TYPE', 'postgres')
 
@@ -130,4 +130,4 @@ def hash_password(password):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)
